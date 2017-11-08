@@ -7,9 +7,12 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.*;
 
-public class ArticleDAO {
+public class ArticleDAO
+{
 
-    public void addArticle(Articles art) {
+
+    public void addArticle(Articles art)
+    {
         System.out.println("addArticle success");
         Connection con = null;
 
@@ -21,9 +24,9 @@ public class ArticleDAO {
             String sql = "insert into articles(title,article) values(?,?)";
             System.out.println("sql注入成功");
             ps = con.prepareStatement(sql);
-            System.out.println(art.getI());
-            System.out.println(art.getTitle());
-            System.out.println(art.getContent());
+//            System.out.println(art.getI());
+//            System.out.println(art.getTitle());
+//            System.out.println(art.getContent());
 
             ps.setString(1, art.getTitle());//BUG
             ps.setString(2,art.getContent());
@@ -115,7 +118,8 @@ public class ArticleDAO {
 
         return art;
     }
-    public Articles showPartArts(int id){
+    public Articles showPartArts(int id)                    //在网页上显示内容
+    {
 
         Articles art=findArticle(id);                       //调用findArticle方法
         String title=art.getTitle();
@@ -127,9 +131,9 @@ public class ArticleDAO {
         art.setTitle(title);
         art.setContent(partContent);
         return art;                                            //返回Articles对象
-    }               //在网页上显示内容
-
-    public void deletArticle(int id){
+    }
+    public void deletArticle(int id)                        //通过id删除记录
+    {
 
         Connection con = null ;
         PreparedStatement ps = null ;
@@ -154,9 +158,8 @@ public class ArticleDAO {
 
 
 
-    }                   //通过id删除记录
-
-    public void updateArticle(Articles art)                 //传入一个JavaBean给函数，修改数据库数据
+    }
+    public void updateArticle(Articles art,int id1)         //传入一个JavaBean给函数，修改数据库数据
     {
         Connection con = null ;
         PreparedStatement ps = null ;
@@ -164,13 +167,12 @@ public class ArticleDAO {
         try
         {
             con = JDBC.getConnection();
-            String sql = "update articles set title=?   article=?  where  id=?";
+            String sql = "update articles set title=?,article=? where id=?";
             ps = con.prepareStatement(sql);
             ps.setString(1, art.getTitle());
             ps.setString(2, art.getContent());
-            ps.setInt(3,art.getI());
-
-
+            ps.setInt(3,id1);
+            ps.executeUpdate();
         }
         catch(SQLException e)
         {
@@ -183,9 +185,6 @@ public class ArticleDAO {
 
 
     }
-
-
-
 
 
 }

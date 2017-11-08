@@ -63,16 +63,12 @@
     </div>
     <form action="UpdataAlterArt.jsp" method="post">
         <div class="form-group">
-            <label class="sr-only">id</label>
-            <input type="text" name="id" value="<%art.getI();%>">
-        </div>
-        <div class="form-group">
             <label class="sr-only">title</label>
-            <textarea name="title" rows="1"cols="180"><%=art.getTitle()%></textarea>
+            <textarea name="title" rows="1"cols="180"><%out.print(art.getTitle());%></textarea>
         </div>
         <div class="form-group">
             <label class="sr-only">content</label>
-            <textarea name="content" rows="15"cols="180"><%=art.getContent()%></textarea>
+            <textarea name="content" rows="15"cols="180"><%out.print(art.getContent());%></textarea>
         </div>
 
        <button type="submit" class="btn btn-default">Submit</button>
