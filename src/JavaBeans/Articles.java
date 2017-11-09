@@ -1,7 +1,7 @@
 package JavaBeans;
 
 public class Articles {
-    private int i;
+    private int id;
     private String title;
     private String content;
     public Articles(){
@@ -24,11 +24,11 @@ public class Articles {
         return content;
     }
 
-    public void setI(int i) {
-        this.i = i;
+    public void setI(int id) {
+        this.id = id;
     }
 
     public int getI() {
-        return i;
+        return id;
     }
 }

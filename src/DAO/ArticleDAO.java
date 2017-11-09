@@ -166,9 +166,11 @@ public class ArticleDAO
 
         try
         {
+
             con = JDBC.getConnection();
             String sql = "update articles set title=?,article=? where id=?";
             ps = con.prepareStatement(sql);
+            System.out.println(id1+"-------------------------");
             ps.setString(1, art.getTitle());
             ps.setString(2, art.getContent());
             ps.setInt(3,id1);
