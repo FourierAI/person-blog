@@ -18,3 +18,20 @@
           |-- JDBCLib包
               |--JDBC类（链接数据库）
 <pre> |--web包
+	  	  |-- login.jsp(登陆管理系统的jsp包)
+	  	  	  |--dologin.jsp(登陆响应页面)
+	  	  	  |--login.jsp(登陆页面)
+	  	  	  |--login_fail.jsp(登陆失败返回页面)
+	  	  |-- manage.jsp(管理博客的jsp包)
+	  	      |--addArticle.jsp
+	  	      |--alterArticle.jsp
+	  	      |--deletArticle.jsp
+	  	      |--doAddArticle.jsp
+	  	      |--doAlterArt.jsp
+	  	      |--doDeletArt.jsp
+	  	      |--login_success.jsp
+	  	      |--UpdataAlterArt.jsp
+	  	  |-- WEB-INF(包)
+	  	  	  |--lib包(jar包)
+	  	  	  |--web.xml
+	  	  |-- index.jsp(jsp访客主页)		
